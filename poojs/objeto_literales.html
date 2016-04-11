@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Objetos Literales</title>
+	<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+	<script>
+	'use strict';
+		 var generico = {
+		 	nombre 	: "Mi objeto",
+		 	edad	: 15,
+		 	saludar1	:function (nombre) {
+		 		// body
+		 		console.log("(saludar1) Hola "+nombre);
+		 	},
+		 	saludar2	:function () {
+		 		// body
+		 		console.log("(saludar2) Hola "+generico.nombre);
+		 	}
+		 };
+		 console.log(generico);
+		 generico.saludar1(generico.nombre);
+		 generico.saludar1("Marcos");
+		 generico.saludar2();
+	</script>
+</body>
+</html>
