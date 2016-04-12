@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Propiedades Publicas</title>
+</head>
+<body>
+
+<script>
+
+	/**
+	 * Metodo constructor
+	 */
+	function Persona() {
+		this.dni = '';
+		this.nombre = '';
+
+
+	}
+	/**
+	 * Metodo Constructor con parametros
+	 * @param dni -- string
+	 * @param nombre -- string
+	 * @constructor
+	 */
+	function PersonaParametros(dni, nombre) {
+		this.dni = dni;
+		this.nombre = nombre;
+
+
+	}
+
+	//instanciacion de Persona sin parametros objetos Persona
+	var yo = new Persona();
+
+	//asignacion de valores al objeto persona
+	yo.dni = '78975757J';
+	yo.nombre = 'Carmen';
+
+
+	var tu = new Persona();
+
+	tu.dni = '12374589K';
+	tu.nombre = 'Pepe';
+
+	tu['nombre'] = 'Pepe1';
+
+	//instanciacion de un objeto con parametros
+	var yoParametros = new PersonaParametros('123456', 'Pedro');
+	var tuParametros = new PersonaParametros('987456', 'Merche');
+
+	console.log(yo);
+	console.log(tu);
+	console.log(yoParametros);
+	console.log(tuParametros);
+
+
+</script>
+
+</body>
+</html>
