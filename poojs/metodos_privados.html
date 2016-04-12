@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<script>
+	function Persona(dni, nombre) {
+
+		//propiedad privada con var
+		var edad = 0;
+		var edadParaSaludar = 1;
+
+		//se crea una variable privada para poder llamar al metodo publico
+		var _this = this;
+
+		//propiedades publicas
+		this.dni = dni;
+		this.nombre = nombre;
+
+		//Metodos que acceden a la propiedad privada aquí
+		function envejecer() {
+			//aqui puede acceder a edad porque esta en el mismo ambito
+			edad++;
+
+			//cuando la edad sea mayor o igual a la edadParaSaludar
+			//se llama al metodo
+			if (edad >= edadParaSaludar) {
+				//no se puede llamar a un metodo publico (fuera del constructor)
+				// desde un metodo privado
+				//se creaa un var privada _this
+				_this.saludar('pepe');
+			}
+		}
+
+		//para poder usar un metodo privado se crea un metodo publico
+		//dentro del mismo ambito que el metodo privado
+		// y llamamos al metodo del objeto
+		Persona.prototype.crecer = function () {
+			envejecer();
+		};
+
+	}
+
+	//metodo publico
+	//con prototype es un metodo general de la clase
+	Persona.prototype.saludar = function (nombre) {
+		console.log(this.nombre + ' te saluda ' + nombre);
+	};
+
+
+	//instancia objeto persona
+	var yo = new Persona('123456', 'Carmen');
+	//edad es una propiedad privada asi se mostrará undefined
+	//no podemos acceder directamente a ella
+
+
+	//llamada al metodo saludar por parte del objeto Persona (yo)
+	yo.saludar('juan');
+
+	yo.crecer();
+
+	console.log(yo.edad);
+</script>
+
+</body>
+</html>

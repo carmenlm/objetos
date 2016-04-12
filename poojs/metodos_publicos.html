@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Propiedades Publicas</title>
+</head>
+<body>
+
+<script>
+
+	/**
+	 * Metodo constructor de Persona
+	 */
+	function Persona() {
+
+		//propiedades publicas
+		this.dni = '';
+		this.nombre = '';
+
+
+
+
+	}
+
+	//metodo publico
+	//con prototype es un metodo general de la clase
+	//se ahorra memoria
+	Persona.prototype.saludar = function (nombre) {
+		console.log(this.nombre + ' te saluda ' + nombre);
+	};
+	/**
+	 * Metodo Constructor con parametros
+	 * @param dni -- string
+	 * @param nombre -- string
+	 * @constructor
+	 */
+	function PersonaParametros(dni, nombre) {
+		this.dni = dni;
+		this.nombre = nombre;
+
+
+	}
+
+	//instanciacion de Persona sin parametros objetos Persona
+	var yo = new Persona();
+
+	//asignacion de valores al objeto persona
+	yo.dni = '78975757J';
+	yo.nombre = 'Carmen';
+
+
+	var tu = new Persona();
+
+	tu.dni = '12374589K';
+	tu.nombre = 'Pepe';
+
+	//modifico la asignacion al objeto Persona (tu)
+	//se hace como en un array
+	tu['nombre'] = 'Pepe1';
+
+	//instanciacion de un objeto con parametros
+	var yoParametros = new PersonaParametros('123456', 'Pedro');
+	var tuParametros = new PersonaParametros('987456', 'Merche');
+
+	//muestro los objetos
+	console.log(yo);
+	console.log(tu);
+	console.log(yoParametros);
+	console.log(tuParametros);
+
+	//llamada al metodo saludar por parte del objeto Persona (yo)
+	yo.saludar('juan');
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Propiedades Estaticas</title>
+</head>
+<body>
+
+<script>
+	console.log(Math.PI);
+
+	//constructos
+	function Convertidor() {
+
+	}
+
+	//propiedades estaticas de un objeto
+	Convertidor.GRADOS_A_RADIANES = Math.PI / 180;
+	Convertidor.RADIANES_A_GRADOS = 180 / Math.PI;
+
+
+	//metodo estatico
+	Convertidor.aRadianes = function (grados) {
+		return grados * Convertidor.GRADOS_A_RADIANES;
+	};
+
+	//metodo estatico
+	Convertidor.aGrados = function (radianes) {
+		return radianes * Convertidor.RADIANES_A_GRADOS;
+	};
+
+	console.log('180 gadros son: ' + Convertidor.aRadianes(180) + ' radianes.');
+	console.log('2PI Radianes son: ' + Convertidor.aGrados(2 * Math.PI) + ' grados.');
+</script>
+
+</body>
+</html>
