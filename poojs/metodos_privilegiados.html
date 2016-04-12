@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<script>
+	function Persona(dni, nombre) {
+
+		//propiedad privada con var
+		var edad = 0;
+		var edadParaSaludar = 1;
+
+		//propiedades publicas
+		this.dni = dni;
+		this.nombre = nombre;
+
+		//Metodos privilegiados para que se puedan
+		// acceder a las propiedades privadas por parte de los metodo publicos
+		//fuera del ambito
+
+		//metodos getter y setter
+		this.getEdad = function () {
+			return edad;
+		};
+		this.setEdad = function (nuevaEdad) {
+			edad = nuevaEdad;
+		};
+
+		this.getEdadParaSaludar = function () {
+			return edadParaSaludar;
+		};
+		this.setEdadParaSaludar = function (nuevaEdad) {
+			edad = nuevaEdad;
+		};
+
+
+	}
+
+	//metodo publico
+	//con prototype es un metodo general de la clase
+	Persona.prototype.saludar = function (nombre) {
+		console.log(this.nombre + ' te saluda ' + nombre);
+	};
+
+	//para poder acceder a los metodos privados
+	//se crean getter y setter
+	Persona.prototype.crecer = function () {
+		this.setEdad((this.getEdad() + 1));
+
+		if (this.getEdad() >= this.getEdadParaSaludar()) {
+			this.saludar('pepe');
+		}
+	};
+
+
+	//instancia objeto persona
+	var yo = new Persona('123456', 'Carmen');
+	//edad es una propiedad privada asi se mostrará undefined
+	//no podemos acceder directamente a ella
+
+
+	//llamada al metodo saludar por parte del objeto Persona (yo)
+	yo.saludar('juan');
+
+	yo.crecer();
+
+	console.log(yo.edad);
+</script>
+
+</body>
+</html>
